@@ -140,6 +140,7 @@
             </svg>
         </a>
 
+        <a href="#" class='cta-mail back-to-top-btn'>Mail Us</a>
     </div>
 
 </footer>
