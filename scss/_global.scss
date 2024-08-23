@@ -1,0 +1,37 @@
+$Nero-color: #fff;
+$Pomegranate-color: #ee3b24;
+$Black-color: #1e1e1e;
+$MineShaft-color: #323232;
+$DoveGray-color: #6a6a6a;
+$WildSand-color: #f5f5f5;
+$Alto-color: #dedede;
+
+$Nero50-color: rgba(255,255,255,0.5);
+$Black70-color: rgba(0,0,0,0.75);
+$Black10-color: rgba(0,0,0,0.10);
+$Nero15-color: rgba(255,255,255,0.15);
+$Black30-color: rgba(0,0,0,0.3);
+$Pomegranate60-color: rgba(238,59,36,0.6);
+
+$font-raleway: "Raleway", sans-serif;
+$font-lato: "Lato", sans-serif;
+
+$mobile-phone-small: 321px;
+$mobile-phone: 767px;
+$mobile-tablet: 1023px;
+$desktop-laptop-small: 1439px;
+
+%fontBase-Display{
+    text-decoration: none;
+    font-family: $font-raleway;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0;
+}
+%fontBaseParagraph{
+    text-decoration: none;
+    font-family: $font-lato;
+    font-weight: 400;
+    margin: 0;
+}
+

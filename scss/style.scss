@@ -1,0 +1,341 @@
+@use 'global' as *;
+
+*{box-sizing: border-box;}  
+html {scroll-behavior: smooth;}
+body{
+    margin: 0;
+    padding: 0;
+}
+img{
+    vertical-align: middle;
+}
+
+ul{
+    li, p{
+    // color: $DoveGray-color;
+    letter-spacing: 0.5px;
+    line-height: 1.5em;
+
+    }  
+}
+/*input field styling*/
+textarea , input{
+    border: 1px solid $Alto-color;
+    padding: 23px;
+    width: 100%;
+}
+textarea::placeholder , input::placeholder{
+    font-family: $font-lato;
+    font-weight: 500;
+    font-size: 20px;
+    color: $DoveGray-color;
+}
+textarea:focus, input:focus{
+    border: 1px solid $MineShaft-color;
+}
+
+a:hover, a:active{
+    color: $Pomegranate-color;
+    transition: .3s ease;
+}
+.link{
+    transition: .3s ease;
+    &--passive-blk-color{
+        color: $MineShaft-color;
+    }
+    &--active-prm-color{
+        color: $Pomegranate-color;
+    }
+    &--expand-clk-area{
+        padding: 20px;
+        margin-right: -20px;
+    }
+
+    @media (max-width:$mobile-tablet){
+        &--expand-clk-area{
+            padding: 10px 12px;
+        }
+    }
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0
+}
+
+
+.font-display{
+    @extend %fontBase-Display;
+    font-size: 62px;
+}
+.font-heading-1{
+    @extend %fontBase-Display;
+    font-size: 38px;
+}
+.font-heading-2{
+    @extend %fontBase-Display;
+    font-size: 36px;
+}
+.font-heading-3{
+    @extend %fontBase-Display;
+    font-size: 32px;
+}
+.font-heading-4{
+    @extend %fontBase-Display;
+    font-size: 24px;
+}
+.font-heading-5{
+    @extend %fontBase-Display;
+    font-size: 18px;
+}
+.font-heading-6{
+    @extend %fontBase-Display;
+    font-size: 14px;
+}
+
+
+.font-paragraph{
+    @extend %fontBaseParagraph;
+    font-size: 20px;
+}
+.font-paragraph-upper{
+    @extend %fontBaseParagraph;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 20px;
+}
+.font-paragraph-reg{
+    @extend %fontBaseParagraph;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+.font-label-26-bd{
+    @extend %fontBaseParagraph;
+    font-weight: 700;
+    font-size: 26px;
+}
+.font-label-24-rg{
+    @extend %fontBaseParagraph;
+    font-size: 24px;
+}
+.font-label-20-bd{
+    @extend %fontBaseParagraph;
+    font-weight: 700;
+    font-size: 20px;
+}
+.font-label-20-rg-upper{
+    @extend %fontBaseParagraph;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.image-aspect-ratio{
+    object-fit: cover;
+    width: 100%;
+    &__1-1{
+        aspect-ratio: 1/1;
+    }
+    &__15-9{
+        aspect-ratio: 15/9;
+    }
+    &__17-10{
+        aspect-ratio: 17/10;
+    }
+    &__16-13{
+        aspect-ratio: 16/13;
+    }
+
+}
+
+.button{
+    padding: 20px 40px;
+    border: 3px solid;
+    border-radius: 50px;
+    transition: .3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin: auto;
+    max-width: fit-content;
+    &--hex-btn{
+        background: $Pomegranate-color;
+        padding: 15px 15px;
+        -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+        clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+        border: none;
+        cursor: pointer;
+
+        svg{
+            path{
+                transition: .3s ease ;
+                stroke: $Nero-color;
+            }
+        } 
+        &:hover {
+            svg path{
+                transition: .3s ease ;
+                stroke: $MineShaft-color;
+            }
+        } 
+            
+    }
+
+
+    &--primary{
+        border-color: $Nero-color;
+        color: $Nero-color;
+        fill: $Nero-color;
+        background-color: #ffffff00;
+        &:hover{
+            border-color: $Pomegranate-color;
+            background-color: $Pomegranate-color;
+            color: $Nero-color;
+        }
+    }
+    &--secondary{
+        border-color: $Pomegranate-color;
+        background-color: $Pomegranate-color;
+        color: $Nero-color;
+        fill: $Nero-color;
+        &:hover{
+            border-color: $Pomegranate-color;
+            color: $MineShaft-color;
+            fill: $MineShaft-color;
+            background-color: #ffffff00;
+        }
+    }
+    &--outlined{
+        @extend .font-label-20-rg-upper;
+        border-color: $Pomegranate-color;
+        color: $MineShaft-color;
+        background-color: #ffffff00;
+        margin: 20px 0 0 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &:hover{
+            border-color: $Pomegranate-color;
+            background-color: $Pomegranate-color;
+            color: $Nero-color;
+            fill: $Nero-color;
+            svg {
+                path{
+                    fill: $Nero-color;
+                }
+            }
+            
+        }
+        svg {
+            path {
+                transition: .3s ease;
+                
+            }
+        }
+    }
+    &--primary-post-date{
+        @extend .font-label-20-bd;
+        border-radius: 0 50px 50px 0;
+        padding: 10px 30px;
+        transition: .3s ease;
+        
+        color: $Nero-color;
+        border-color: $Pomegranate-color;
+        background-color: $Pomegranate-color;
+    }
+
+}
+
+.container{
+    padding: 100px 0px;
+    width: 88vw;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    
+    &__vertical-content{
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+    }
+    &--align-center{
+        text-align: center;
+        align-items: center;
+    }
+
+    &__horizontal-content{
+        display: flex;
+        flex-direction: row;
+    }
+
+    &--lightgrey-bg-color{
+        background-color: $WildSand-color;
+        
+    }
+}
+
+.wrapper{
+    flex-wrap: wrap;
+    display: flex;
+    
+    &__col-gap-narrow{
+        column-gap: 30px;
+    }
+    &__row-gap-tall{
+        row-gap: 90px;
+    }
+    &__row-gap-very-tall{
+        row-gap: 150px;
+    }
+}
+
+.img-overlay{
+    display: flex;
+
+    &::before{
+        content: "";
+        background: url(../../img/hero-sld-overlay.png) ;
+        background-size: 3px ;
+        background-repeat: repeat ;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    
+}
+
+.ellipsis{
+    &__home-article{
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+
+.wysiwyg-output{
+    @extend .font-paragraph;
+    color: $DoveGray-color;
+    p{
+        margin: 20px 0;
+    }
+    ul{
+        margin: 20px 0;
+        li{
+            @extend .font-paragraph;
+            list-style: inside;
+        }
+    } 
+}
+

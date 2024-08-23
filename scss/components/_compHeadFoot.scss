@@ -1,0 +1,255 @@
+@use '../global' as *;
+@use '../style.scss' as *;
+
+.header {
+    display: flex;
+    width: 88vw;
+    padding: 40px 50px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    right: -50%;
+    border-radius: 0 0 8px 8px;
+    transform: translate(-50%);
+    background-color: $Nero-color;
+    z-index: 10;
+    justify-content: space-between;
+    box-shadow: 0px 16px 32px -4px #0C0C0D1A;
+
+    &__logo-img{
+        max-width: 230px;
+    }
+    &__menu-section{
+        align-self: center;
+    }
+    &__header-menu{
+        display: inline-block;
+        margin-left: 30px;
+    }
+    &__menu-toggle{
+        display: none;
+        
+    }
+    &__logo-section{
+        align-content: center;
+    }
+    &__hover-scale{
+        position: absolute;
+        height: 60px;
+        width: 55px;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .3s ease;
+    }
+
+    &__menu-font{
+        @extend .font-paragraph-upper;
+        display: flex;
+        li{
+            
+            a{
+                display: block;
+                color: $MineShaft-color;
+                text-decoration: none;
+                margin-left: 20px;
+                padding: 10px;
+                transition: .3s ease;
+                &:hover{
+                    color: $Pomegranate-color;
+                }
+            }
+            
+        }
+    }
+
+    @media (max-width:$desktop-laptop-small){
+        padding: 35px 30px;
+        &__menu-section{
+            text-align: right;
+        }
+    }
+    @media (max-width:$mobile-tablet){
+        padding: 15px 30px;
+        border-radius: 0;
+        width: 100%;
+        align-items: center;
+
+        li{
+            margin-bottom: 20px;
+            a{
+                padding: 10px;
+            }
+        }
+
+        &__menu-toggle{
+            display: block;
+            background: none;
+            font-size: 42px;
+            border: none;
+            padding: 0px 10px 4px 10px;
+            color: $MineShaft-color;
+            position: relative;
+            height: 60px;
+            width: 55px;
+            scale: 1;
+            transition: .3s ease;
+            &:hover{
+                
+                span {
+                    scale: 0.8;
+                }
+                
+            }
+        }
+        &__menu-toggle[aria-expanded="false"] + &__nav{
+            display: none;
+        }
+        &__menu-toggle[aria-expanded="true"]{
+            color: $Pomegranate-color;
+            
+            transition: .3s ease;
+            
+            position: relative;
+            width: 55px;
+            height: 60px;
+
+        }
+        &__nav {
+            position: absolute;
+            background-color: $Nero-color;
+            top: 80px;
+            width: 100%;
+            right: 0;
+            left: 0;
+            padding: 20px;
+        }
+        &__header-menu{
+            margin: 0;
+
+            a {
+                display: block;
+            }
+        }
+
+        &__menu-font{
+            text-align: left;
+            flex-direction: column;
+            li{
+                a{
+                    margin: 0;
+                }
+            }
+        }
+    }
+    @media (max-width:$mobile-phone){
+        &__logo-img{
+            max-width: 200px;
+            padding-right: 20px;
+        }
+    }
+}
+
+.current-menu-item{
+    a{
+        color: $Pomegranate-color !important;
+    }
+    
+}
+
+.footer{
+    background-position: center center;
+    background-size: cover;
+    gap: 40px;
+    position: relative;
+
+    &__container{
+        @extend .container__vertical-content;
+        @extend .container--align-center;
+        padding: 86px 0 89px 0;
+    }
+
+    &__logo-img{
+        width: 322px;
+    }
+    &__socials-wrapper{
+        @extend .container__horizontal-content;
+        margin: 50px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+
+    }
+    &__socials-btn{
+        @extend .button--hex-btn;
+        height: 60px;
+        display: block;
+        &:hover svg path{
+            stroke: $MineShaft-color;
+            fill: $MineShaft-color;
+        }
+
+    }
+    &__divider{
+        width: 65%;
+        background-color: $Nero50-color;
+        margin: 0;
+        height: 1px;
+    }
+
+    &__copyright-text{
+        @extend .font-label-20-bd; 
+        color: $Nero-color;
+        margin-top: 40px;
+    }
+    .back-to-top-btn{
+        background-color: $Black-color;
+        position: absolute;
+        bottom: 100px;
+        right: 6%;
+        width: 50px;
+        height: 50px;
+        z-index: 2;
+        border-radius: 50%;
+        padding: 13px;
+        transition: 0.3s ease;
+
+        svg{
+            path{
+                transition: .3s ease;
+                color: $DoveGray-color;
+            }
+        }
+            
+        &:hover{
+            
+            background-color: $Pomegranate-color;
+
+            svg{
+                path{
+                    transition: .3s ease;
+                    fill: $Nero-color;
+                }
+            } 
+        }
+        
+    }
+    @media (max-width:$mobile-phone){
+        &__container{
+            padding: 100px 30px;
+        }
+        &__socials-wrapper{
+            margin: 60px 0;
+        }
+        .back-to-top-btn{
+            bottom: 150px;
+        }
+        &__socials-btn{
+            margin-top: 10px;
+        }
+        &__logo-img{
+            width: 250px;
+        }
+    }
+}

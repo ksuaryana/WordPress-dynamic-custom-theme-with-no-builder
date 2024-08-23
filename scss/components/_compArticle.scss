@@ -1,0 +1,310 @@
+@use '../global' as *;
+@use '../style.scss' as *;
+
+.article{
+    &__container{
+        @extend .container;
+        @extend .container__vertical-content;
+        @extend .container--align-center;
+        padding-bottom: 160px;
+    }
+    &--container-single-page{
+        @extend .container; 
+    }
+
+    &__section-title{
+        @extend .font-heading-1;
+        margin-bottom: 20px;
+    }
+    &__section-sub-title{
+        @extend .font-paragraph;
+        margin: 30px 0 20px 0;
+    }
+
+    &__wrapper{
+        @extend .wrapper;
+        @extend .wrapper__col-gap-narrow;
+        row-gap: 150px;
+        padding-top: 40px;
+    }
+    &__home-item{
+        flex: 1 0 calc(33.3% - 25px);
+    }
+    &__blog-item{
+        flex: 1 0 calc(33.3% - 25px);
+        padding-bottom: 90px;
+    }
+
+    @media (max-width:$mobile-tablet){
+        &__wrapper{
+            row-gap: 90px;
+        }
+        &__home-item{
+            flex-basis: calc(50% - 25px);
+        }
+        &--container-single-page{
+            flex-direction: column;
+            text-align: left;
+            row-gap: 90px;
+        }
+    }
+    @media (max-width:$mobile-phone){
+        &__home-item{
+            flex-basis: unset;
+            width: 100%;
+        }
+    }
+}
+
+.article-card{
+    width: 100%;
+    text-align: left;
+
+    &__thumb{
+        position: relative;
+        img{
+            border-radius: 8px;
+        }
+    }
+    &__date-ribbon{
+        position: absolute;
+        left: 0;
+        bottom: 17px;
+    }
+
+    &__body{
+        padding: 20px 0px;
+    }
+    &__body-category{
+        @extend .font-paragraph;
+        color: $MineShaft-color;
+        font-size: 24px;
+        margin-top: 12px;
+        
+        a{
+            transition: .3s ease;
+            color: $MineShaft-color;
+            &:hover{
+                color: $Pomegranate-color;
+                
+            }
+        }
+    }
+    &__body-title{
+        @extend .font-heading-2; 
+        @extend .link--passive-blk-color;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin: 20px 0;
+    
+    }
+    &__body-tags{
+        @extend .font-paragraph;
+        color: $MineShaft-color;
+        font-size: 18px;
+        a{
+            color: $MineShaft-color;
+            transition: .3s ease;
+            text-decoration: none;
+            &:hover{
+                color: $Pomegranate-color;
+                
+            }
+        }
+        
+    }
+    &__body-excerpt{
+        @extend .font-paragraph;
+        margin-bottom: 50px;
+        color: $DoveGray-color
+    }
+    &__body-read-more{
+        @extend .button--outlined;
+        padding: 20px 40px;
+    }
+    @media (max-width:$desktop-laptop-small){
+        &__body {
+            padding: 0px;
+        }
+        &__date-ribbon{
+            font-size: 16px;
+            padding: 8px 20px;
+        }
+        &__body-title{
+            font-size: 26px;
+        }
+        &__body-excerpt{
+            font-size: 18px;
+        }
+        &__body-read-more {
+            padding: 12px 30px;
+            font-size: 14px;
+        }
+    }
+    @media (max-width:$mobile-tablet){
+        &__body-title{
+            font-size: 30px;
+        }
+    }
+}
+
+.article-single-item{
+    width: 70%;
+    padding-right: 70px;
+    
+    &__tall-gap{
+        margin-bottom: 106px;
+    }
+    &__img{
+        border-radius: 8px;
+    }
+    &__date-taxonomies{
+        position: absolute;
+        left: 0;
+        bottom: 31px;
+    }
+
+    &__excerpt{
+        @extend .article-card__body-excerpt;
+        margin-bottom: 67px;
+    }
+
+    @media (max-width:$desktop-laptop-small){
+        width: 65%;
+        padding-right: 50px;
+    }
+    @media (max-width:$mobile-tablet){
+        width: 100%;
+        padding: 0;
+
+        &__img {
+            aspect-ratio: 16 / 9;
+        }
+    }
+    @media (max-width:$mobile-phone){
+
+        &__img {
+            aspect-ratio: 1 / 1;
+        }
+    }
+}
+
+.blog-search-section{
+    width: 30%;
+    &__search-bar{
+        margin-bottom: 100px;
+    }
+    &__placeholder-font{
+        @extend .font-paragraph;
+    }
+
+    &__categories{
+        margin-bottom: 100px;
+    }
+    &__category_list{
+        padding: 25px 0px 0px 0;
+        border-bottom: 1px solid $Alto-color;
+        margin-top: 7px;
+
+        h3{
+            margin: 0;
+        }
+        
+        a{
+            @extend .font-label-24-rg;
+            padding: 0px 0px 21px 0;
+            display: block;
+            transition: .3s ease;
+            color: $MineShaft-color;
+            &:hover{
+                padding-left: 20px;
+                color: $Pomegranate-color;
+            }
+        }
+    }
+
+    &__latest-blogs{
+        margin-bottom: 100px;
+    }
+    &__latest-blog{
+        display: flex;
+        margin-bottom: 20px;
+    }
+    &__image-container{
+        width: 34%;
+        img{
+            @extend .image-aspect-ratio ;
+            @extend .image-aspect-ratio__16-13;
+        }
+    }
+    &__blog-content{
+        width: 66%;
+        padding-left: 14px;
+        align-content: center;
+
+        h4{
+            margin: 0;
+            padding-bottom: 20px;
+        }
+    }
+    &__blog-title{
+       @extend .font-heading-5;
+        color: $MineShaft-color;
+    }
+    &__blog-date-container{
+        display: flex;
+        align-items: center;
+    }
+    &__blog-date-text{
+        @extend .font-label-20-rg-upper;
+        padding-left: 10px;
+        text-transform: none;
+        color: $DoveGray-color;
+    }
+    
+    &__popular-tags{
+        
+        ul{
+            flex-wrap: wrap;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+
+           
+        }
+    }
+    &__tag{
+        @extend .font-paragraph;
+        flex-basis: auto;
+        text-decoration: none;
+        padding: 20px 30px;
+        background-color: $WildSand-color;
+        border-radius: 50px;
+        color: $DoveGray-color;
+        transition: .3s ease;
+        &:hover{
+            background-color: $Pomegranate-color;
+        color: $Nero-color;
+        }
+    }
+
+    &__title-search{
+        @extend .font-heading-3;
+        margin-bottom: 40px;
+    }
+
+    @media (max-width:$desktop-laptop-small){
+        width: 35%;
+        
+        &__title-search{
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+    }
+    @media (max-width:$mobile-tablet){
+        width: 100%;
+    }
+    
+}

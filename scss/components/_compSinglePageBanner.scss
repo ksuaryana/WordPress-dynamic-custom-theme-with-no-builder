@@ -1,0 +1,64 @@
+@use '../global' as *;
+@use '../style.scss' as *;
+
+.single-page-banner{
+    &__container{
+        padding: 220px 0 130px 0;
+        position: relative;
+        background: url(../../img/hero-sld-overlay.png) ;
+            background-size: 3px ;
+            background-repeat: repeat ;
+        
+     }
+
+    &__page-title{
+        @extend .font-heading-1;
+        color: $Nero-color;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    &__breadcrumbs, &__current-page-link{
+        @extend .font-label-26-bd;
+        color: $Nero-color;
+        text-align: center;
+
+        a{
+            text-decoration: none;
+        }
+        
+        &--red{
+            color: $Pomegranate-color;
+        }
+        &--slash-divider{
+            color: $Nero50-color;
+        }
+    }
+    &__img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        z-index: -1;;    
+    }
+    &__hero-content{   
+        width: 50%;
+        position: absolute;
+        top: 16%;
+        right: 50%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        text-align: center;
+        color: $Nero-color;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    @media (max-width:$mobile-tablet){
+        &__breadcrumbs, &__page-title {
+            padding: 0 20px;
+        }
+    }
+    
+}

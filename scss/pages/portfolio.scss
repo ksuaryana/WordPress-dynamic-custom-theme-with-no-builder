@@ -1,0 +1,72 @@
+@use '../global' as *;
+@use '../style.scss' as *;
+@use '../components/compHeadFoot' as *;
+@use '../components/compSinglePageBanner' as *;
+@use '../components/compModal' as *;
+@use '../components/compPortfolio' as *;
+
+.nav-pagination{
+    width: 100%;
+    margin: 100px 0 0 0;
+
+    &--align-left{
+        @extend .nav-pagination;
+        justify-content: left;
+        padding-bottom: 25px;
+        margin: 140px 0 0 0;
+    }
+
+    li{
+        display: inline-block; 
+    }
+
+    &__numbers{
+        @extend .font-label-20-rg-upper;
+        display: block;
+        text-decoration: none;
+        color: $Pomegranate-color;
+        margin: 3px;
+        border: 1px solid #dedede;
+        transition: 0.4s ease;
+        height: 56px;
+        line-height: 56px;
+        width: 56px;
+        text-align: center;
+
+        &:hover:not(.active), &--active{
+            background: $Pomegranate-color;
+            color: $Nero-color;
+            transition: .4s ease;
+        }
+        svg{
+            display: inline-block;
+            vertical-align: sub;
+            
+        }
+        svg{
+            path{
+                transition: .4s ease;
+            }
+        } 
+        
+        &:hover{
+            svg{
+                path{
+                    stroke: $Nero-color;
+                    transition: .4s ease;
+                }
+            } 
+        
+        }
+            
+        &--next, &--prev{
+            @extend .nav-pagination__numbers;
+        }
+    }
+    &__border{
+        margin: 0 auto;
+        padding: 0;
+        text-align: center;
+    }
+}
+

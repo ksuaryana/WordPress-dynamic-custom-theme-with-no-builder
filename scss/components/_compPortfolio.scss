@@ -1,0 +1,135 @@
+@use '../global' as *;
+@use '../style.scss' as *;
+
+.portfolio{
+    &--grey-bg{
+        background-color: $WildSand-color;
+    }
+
+    &__container{
+        @extend .container;
+        @extend .container__vertical-content;
+        @extend .container--align-center;
+        padding: 143px 0 146px 0;
+    }
+
+    &__section-title{
+        @extend .font-heading-1;
+        margin-bottom: 20px;
+    }
+    &__section-sub-title{
+        @extend .font-paragraph;
+        margin: 30px 0 20px 0;
+    }
+
+    &__wrapper{
+        @extend .wrapper;
+        padding-top: 40px;
+    }
+
+    &__description-layer{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: $Nero-color;
+        padding: 30px;
+        transition: opacity .2s, visibility .2s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity .2s, visibility .2s;
+        gap: 15px;
+
+        &::before{
+            content: "";
+            border: 1px solid $Nero-color;
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            right: 30px;
+            bottom: 30px;
+        }
+    }
+
+    &__item{
+        width: 25%;
+        position: relative;
+        
+
+        &:hover {
+            .portfolio__description-layer{
+            visibility: visible;
+            opacity: 1;
+            }
+        }
+    }
+
+    &__prod-title, &__modal-title{
+        @extend .font-heading-3;
+    }
+
+    @media (max-width:$desktop-laptop-small){
+
+        &__description-layer {
+            &::before{
+                top: 20px;
+                left: 20px;
+                right: 20px;
+                bottom: 20px;
+            }
+
+            .open-modal-button{
+                padding: 15px;
+                & svg{
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+        &__prod-title{
+            font-size: 26px;
+        }
+    }
+
+    @media (max-width:$mobile-tablet){
+        &__item {
+            flex: 1 0 33.3%;
+        }
+        &__description-layer {
+
+            &::before{
+                top: 15px;
+                left: 15px;
+                right: 15px;
+                bottom: 15px;
+            }
+
+            .open-modal-button{
+                padding: 10px;
+                & svg{
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+        &__prod-title{
+            font-size: 24px;
+        }
+    }
+    @media (max-width:$mobile-phone){
+        &__item {
+            flex: 1 0 50%;
+        }
+    }
+    @media (max-width:$mobile-phone-small){
+        &__item{
+            flex-basis: 100%;
+        }
+    }
+}
